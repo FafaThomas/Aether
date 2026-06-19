@@ -8,7 +8,7 @@ public sealed partial class PlayerControl : UserControl
     {
         InitializeComponent();
 
-        Play("https://www.vidking.net/embed/tv/259837/1/1");
+        Play("https://www.vidking.net/embed/movie/10193");
     }
 
     public void Play(string url)

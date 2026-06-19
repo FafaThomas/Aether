@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aether.UI", "Aether.UI\Aeth
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aether.Player", "Aether.Player\Aether.Player.csproj", "{29FF5C01-0B98-413D-BAD9-E199CF3F7A72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aether.Sync", "Aether.Sync\Aether.Sync.csproj", "{8D88C5AA-D36C-4FAF-A0BE-7FAC11F06A83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{29FF5C01-0B98-413D-BAD9-E199CF3F7A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29FF5C01-0B98-413D-BAD9-E199CF3F7A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29FF5C01-0B98-413D-BAD9-E199CF3F7A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D88C5AA-D36C-4FAF-A0BE-7FAC11F06A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D88C5AA-D36C-4FAF-A0BE-7FAC11F06A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D88C5AA-D36C-4FAF-A0BE-7FAC11F06A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D88C5AA-D36C-4FAF-A0BE-7FAC11F06A83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
