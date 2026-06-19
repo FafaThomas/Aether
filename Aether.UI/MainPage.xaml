@@ -2,25 +2,49 @@
 <Page
     x:Class="Aether_UI.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:Aether_UI"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:player="using:Aether_UI.Controls"
-    mc:Ignorable="d">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <ScrollViewer>
 
-    <Grid>
+        <StackPanel Padding="20" Spacing="20">
 
-            <player:PlayerControl
-                x:Name="Player"/>
+            <TextBlock
+                Text="Popular Movies"
+                FontSize="32"
+                FontWeight="Bold"/>
 
-    </Grid>
+            <GridView
+                x:Name="MoviesGrid"
+                IsItemClickEnabled="True"
+                ItemClick="MoviesGrid_ItemClick">
+                
+                <GridView.ItemTemplate>
+                    <DataTemplate>
 
-    <!--
-        This is the main content area of your application.
-        Add your UI elements here — for example, controls, layouts, and data-bound views.
-        Use 'dotnet new winui-page' to create additional pages and navigate to them via
-        the Frame in MainWindow (RootFrame).
-    -->
+                        <StackPanel Width="180">
+
+                            <Image
+                                Width="180"
+                                Height="270"
+                                Stretch="UniformToFill"
+                                Source="{Binding PosterUrl}"/>
+
+                            <TextBlock
+                                Text="{Binding Title}"
+                                TextWrapping="WrapWholeWords"/>
+
+                            <TextBlock
+                                Text="{Binding VoteAverage}"/>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+
+            </GridView>
+
+        </StackPanel>
+
+    </ScrollViewer>
+
 </Page>

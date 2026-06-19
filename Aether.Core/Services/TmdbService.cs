@@ -1,7 +1,7 @@
 using System.Net.Http.Json;
-using Aether.Sync.Models;
+using Aether.Core.Models;
 
-namespace Aether.Sync.Services;
+namespace Aether.Core.Services;
 
 public class TmdbService
 {

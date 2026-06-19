@@ -1,6 +1,6 @@
 ﻿using DotNetEnv;
-using Aether.Sync.Services;
-using Aether.Sync.Workers;
+using Aether.Core.Services;
+using Aether.Core.Workers;
 
 
 

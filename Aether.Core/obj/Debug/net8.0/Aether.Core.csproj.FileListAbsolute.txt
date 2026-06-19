@@ -1,0 +1,13 @@
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\bin\Debug\net8.0\Aether.Core.deps.json
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\bin\Debug\net8.0\Aether.Core.dll
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\bin\Debug\net8.0\Aether.Core.pdb
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\Aether.Core.csproj.AssemblyReference.cache
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\Aether.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\Aether.Core.AssemblyInfoInputs.cache
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\Aether.Core.AssemblyInfo.cs
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\Aether.Core.csproj.CoreCompileInputs.cache
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\Aether.Core.sourcelink.json
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\Aether.Core.dll
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\refint\Aether.Core.dll
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\Aether.Core.pdb
+D:\Organized Projects\For Portfolio\Aether\Aether.Core\obj\Debug\net8.0\ref\Aether.Core.dll

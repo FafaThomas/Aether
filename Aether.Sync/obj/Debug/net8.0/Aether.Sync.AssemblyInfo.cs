@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Aether.Sync")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23299d8f6065156407e01d6eacc6142569d17af3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fe03a747a690ec646a1cb65de6aa3c4f3343f8f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Aether.Sync")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Aether.Sync")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

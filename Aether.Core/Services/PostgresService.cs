@@ -1,8 +1,8 @@
-using Aether.Sync.Models;
+using Aether.Core.Models;
 using Dapper;
 using Npgsql;
 
-namespace Aether.Sync.Services;
+namespace Aether.Core.Services;
 
 public class PostgresService
 {
@@ -240,5 +240,49 @@ public class PostgresService
         await connection.QueryAsync<int>(sql);
 
     return result.ToList();
+    }
+
+    public async Task<DateOnly?> GetLastSyncDateAsync(
+    string syncName)
+    {
+    const string sql = """
+    SELECT last_sync_date
+    FROM aether.sync_state
+    WHERE sync_name = @SyncName;
+    """;
+
+    await using var connection =
+        new NpgsqlConnection(_connectionString);
+
+    return await connection.QueryFirstOrDefaultAsync<DateOnly?>(
+        sql,
+        new { SyncName = syncName });
+    }
+
+    public async Task UpdateLastSyncDateAsync(
+    string syncName)
+    {
+    const string sql = """
+    INSERT INTO aether.sync_state
+    (
+        sync_name,
+        last_sync_date
+    )
+    VALUES
+    (
+        @SyncName,
+        CURRENT_DATE
+    )
+    ON CONFLICT (sync_name)
+    DO UPDATE SET
+        last_sync_date = CURRENT_DATE;
+    """;
+
+    await using var connection =
+        new NpgsqlConnection(_connectionString);
+
+    await connection.ExecuteAsync(
+        sql,
+        new { SyncName = syncName });
     }
 }

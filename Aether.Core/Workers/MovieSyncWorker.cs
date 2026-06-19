@@ -1,6 +1,6 @@
-using Aether.Sync.Services;
+using Aether.Core.Services;
 
-namespace Aether.Sync.Workers;
+namespace Aether.Core.Workers;
 
 public class MovieSyncWorker
 {

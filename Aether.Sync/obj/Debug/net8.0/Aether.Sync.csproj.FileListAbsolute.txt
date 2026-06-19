@@ -25,3 +25,5 @@ D:\Organized Projects\For Portfolio\Aether\Aether.Sync\obj\Debug\net8.0\refint\A
 D:\Organized Projects\For Portfolio\Aether\Aether.Sync\obj\Debug\net8.0\Aether.Sync.pdb
 D:\Organized Projects\For Portfolio\Aether\Aether.Sync\obj\Debug\net8.0\Aether.Sync.genruntimeconfig.cache
 D:\Organized Projects\For Portfolio\Aether\Aether.Sync\obj\Debug\net8.0\ref\Aether.Sync.dll
+D:\Organized Projects\For Portfolio\Aether\Aether.Sync\bin\Debug\net8.0\Aether.Core.dll
+D:\Organized Projects\For Portfolio\Aether\Aether.Sync\bin\Debug\net8.0\Aether.Core.pdb

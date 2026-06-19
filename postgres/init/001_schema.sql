@@ -121,6 +121,12 @@ CREATE TABLE fact_popularity_snapshots
         ON DELETE CASCADE
 );
 
+CREATE TABLE aether.sync_state
+(
+    sync_name      TEXT PRIMARY KEY,
+    last_sync_date DATE
+);
+
 -- =====================================================
 -- INDEXES
 -- =====================================================

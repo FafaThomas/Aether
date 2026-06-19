@@ -1438,6 +1438,21 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "Aether.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Dapper": "2.1.79",
+          "DotNetEnv": "3.2.0",
+          "Npgsql": "10.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Aether.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Aether.Core.dll": {}
+        }
       }
     }
   },
@@ -4945,10 +4960,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "Aether.Core/1.0.0": {
+      "type": "project",
+      "path": "../Aether.Core/Aether.Core.csproj",
+      "msbuildProject": "../Aether.Core/Aether.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Aether.Core >= 1.0.0",
       "Dapper >= 2.1.79",
       "DotNetEnv >= 3.2.0",
       "Npgsql >= 10.0.3"
@@ -4978,7 +4999,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Organized Projects\\For Portfolio\\Aether\\Aether.Core\\Aether.Core.csproj": {
+              "projectPath": "D:\\Organized Projects\\For Portfolio\\Aether\\Aether.Core\\Aether.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

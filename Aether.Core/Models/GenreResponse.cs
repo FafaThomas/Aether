@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Aether.Sync.Models;
+namespace Aether.Core.Models;
 
 public class GenreResponse
 {
