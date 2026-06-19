@@ -1,37 +1,83 @@
 # Aether
 
-Aether is a modern Windows-based home theater platform designed to unify streaming sources, local media libraries, AI-powered metadata generation, and high-fidelity surround sound playback into a single experience.
+Aether is a modern Windows-based media platform designed to unify streaming sources, metadata aggregation, local media libraries, AI-powered content services, and high-fidelity home theater playback into a single experience.
 
 The project began with a simple goal:
 
-**Preserve proper 5.1 surround sound playback through SPDIF and external audio decoders while delivering a modern streaming experience.**
+**Preserve proper surround sound playback while delivering a modern streaming experience without sacrificing user control.**
+
+Unlike traditional streaming platforms, Aether is designed around modular content providers, local ownership, metadata warehousing, and future home theater optimization.
 
 ---
 
-## Vision
+# Current Status
 
-Modern streaming platforms provide convenience but often sacrifice user control, media ownership, audio flexibility, and long-term accessibility.
+Aether is currently in active development and already includes a fully functional end-to-end movie discovery and playback workflow.
 
-Aether aims to solve this by creating a personal media ecosystem that combines:
+Current implementation includes:
+
+* WinUI 3 desktop application
+* PostgreSQL metadata warehouse
+* TMDB synchronization engine
+* Daily metadata refresh pipeline
+* Movie catalog browsing
+* Poster and backdrop support
+* Movie details pages
+* Embedded streaming playback
+* VidKing provider integration
+* Historical popularity tracking
+* Genre synchronization
+* Movie detail enrichment
+
+Current user workflow:
+
+```text
+Home Page
+    ↓
+Movie Catalog
+    ↓
+Movie Details
+    ↓
+Play
+    ↓
+Embedded Playback
+```
+
+The project has successfully moved beyond prototype stage and now operates as a functional movie catalog and streaming platform.
+
+---
+
+# Vision
+
+Modern streaming services provide convenience but often sacrifice:
+
+* User control
+* Media ownership
+* Audio flexibility
+* Hardware compatibility
+* Long-term accessibility
+
+Aether aims to solve these problems by combining:
 
 * Modern streaming UI
 * Modular content providers
 * Local media support
 * AI-assisted organization
+* Metadata warehousing
 * Home theater audio
 * Self-hosted infrastructure
 
-The end goal is a platform that feels like Netflix while providing the flexibility of a self-managed media center.
+The long-term goal is a platform that feels like Netflix while providing the flexibility of a self-managed media center.
 
 ---
 
-## Core Principles
+# Core Principles
 
-### Modular Content Sources
+## Modular Content Sources
 
 Aether does not depend on a single content source.
 
-Content providers can be added, removed, or replaced without changing the player itself.
+Content providers can be added, removed, or replaced without changing the rest of the platform.
 
 Examples:
 
@@ -45,11 +91,28 @@ The player should never care where content originates.
 
 ---
 
-### Home Theater First
+## Metadata First
 
-Audio playback is the highest priority of the project.
+Aether maintains a centralized metadata warehouse that separates content discovery from content playback.
 
-Aether is being designed around support for:
+Benefits include:
+
+* Faster UI loading
+* Reduced API usage
+* Historical tracking
+* Recommendation systems
+* AI enrichment
+* Provider independence
+
+Metadata should be owned by the platform rather than tied to any specific provider.
+
+---
+
+## Home Theater First
+
+Audio playback remains a major focus of the project.
+
+Planned support includes:
 
 * SPDIF / Optical Audio
 * HDMI Audio Passthrough
@@ -64,194 +127,329 @@ Whenever possible, audio streams should be passed directly to supported hardware
 
 ---
 
-### AI-Powered Metadata
+## AI-Powered Metadata
 
 Future versions of Aether will include AI-powered content analysis capable of generating:
 
 * Movie summaries
 * Episode summaries
-* Thumbnails
 * Metadata
 * Categories
 * Tags
+* Thumbnails
 * Watch recommendations
 
 The AI layer will operate independently from playback and can be expanded through modular services.
 
 ---
 
-## Architecture
+# Current Architecture
 
 ```text
 Aether
 │
 ├── Aether.UI
-│
-├── Aether.Player
+│   ├── Home Page
+│   ├── Movie Details Page
+│   └── Player Page
 │
 ├── Aether.Core
+│   ├── Models
+│   ├── Services
+│   └── Workers
 │
-├── Aether.Providers
-│   │
-│   ├── VidKing
-│   ├── LocalLibrary
-│   ├── NAS
-│   └── Future Providers
+├── Aether.Sync
+│   └── Console Sync Runner
 │
-├── Aether.Metadata
+├── PostgreSQL
 │
-└── Aether.Audio
+└── TMDB
 ```
 
 ---
 
-## Content Flow
+# Metadata Pipeline
 
 ```text
-Content Provider
-        │
-        ▼
-Metadata Layer
-        │
-        ▼
-Player Engine
-        │
-        ▼
-Audio Engine
-        │
-        ▼
-SPDIF / HDMI
-        │
-        ▼
-External Decoder
-        │
-        ▼
-5.1 / 7.1 Surround System
+TMDB
+ │
+ ├── Genres
+ │
+ ├── Popular Movies
+ │
+ └── Movie Details
+         │
+         ▼
+Aether Sync Engine
+         │
+         ▼
+PostgreSQL Warehouse
+         │
+         ▼
+Aether UI
 ```
 
 ---
 
-## Planned Features
+# Playback Flow
+
+```text
+TMDB Metadata
+        │
+        ▼
+PostgreSQL
+        │
+        ▼
+Movie Catalog
+        │
+        ▼
+Movie Details
+        │
+        ▼
+VidKing Provider
+        │
+        ▼
+WebView2 Player
+```
+
+---
+
+# Database Architecture
+
+Aether uses PostgreSQL as a centralized metadata warehouse.
+
+## Dimensions
+
+### dim_movies
+
+Stores the permanent movie catalog.
+
+### genres
+
+Stores TMDB genre definitions.
+
+---
+
+## Facts
+
+### fact_movie_discovery
+
+Tracks how movies entered the platform.
+
+### fact_movie_details
+
+Stores detailed metadata including:
+
+* Overview
+* Runtime
+* Popularity
+* Ratings
+* Vote counts
+
+### fact_popularity_snapshots
+
+Stores historical popularity rankings.
+
+---
+
+## Bridge Tables
+
+### bridge_movie_genres
+
+Maintains movie-to-genre relationships.
+
+---
+
+## System Tables
+
+### sync_state
+
+Tracks synchronization status and refresh schedules.
+
+---
+
+# Features
+
+## Implemented
+
+### Metadata
+
+* TMDB synchronization
+* Genre synchronization
+* Movie detail enrichment
+* Historical popularity tracking
+* Daily sync management
+
+### Catalog
+
+* Popular movie browsing
+* Poster support
+* Backdrop support
+* Movie details pages
+
+### Streaming
+
+* VidKing integration
+* Embedded playback
+* WebView2 player
+
+### Infrastructure
+
+* Dockerized PostgreSQL
+* Dapper
+* Npgsql
+* Modular synchronization engine
+
+---
+
+## Planned
 
 ### Media Library
 
 * Local library scanning
 * NAS integration
-* Automatic library updates
-* Poster management
 * Collection management
+* Automatic updates
 
 ### Streaming
 
-* Modular provider architecture
-* Embedded streaming sources
-* Remote streaming support
-* Self-hosted media servers
+* Multiple provider support
+* Self-hosted sources
+* Remote streaming
 
 ### Playback
 
-* Hardware accelerated video playback
+* MPV integration
+* Native video rendering
 * Subtitle support
 * Resume playback
 * Watch history
-* Fullscreen theater mode
 
-### Audio
+### Home Theater
 
 * SPDIF passthrough
 * DTS passthrough
 * Dolby passthrough
-* Multi-channel audio support
 * External decoder integration
 
 ### AI
 
-* Automatic metadata generation
+* Metadata generation
 * Thumbnail generation
 * Scene detection
-* Episode identification
 * Personalized recommendations
 
 ---
 
-## Technology Stack
+# Technology Stack
 
-### Frontend
+## Desktop Application
 
 * C#
-* .NET 8
+* .NET 9
 * WinUI 3
 
-### Backend Services
+## Database
 
-* ASP.NET Core
-* PostgreSQL
+* PostgreSQL 17
+* Docker
 
-### AI Services
+## Metadata Services
+
+* TMDB API
+* Dapper
+* Npgsql
+
+## Streaming
+
+* WebView2
+* VidKing
+
+## Future Playback
+
+* MPV
+* Native Audio Passthrough
+
+## AI Services
 
 * Python
-* Pydantic
+* FastAPI
 * Local LLMs
-* Future Agent Frameworks
-
-### Playback
-
-* MPV (planned)
-* WebView2 (early development)
+* Recommendation Systems
 
 ---
 
-## Development Roadmap
+# Development Roadmap
 
-### Phase 1
+## Phase 1 — Foundation
 
-Foundation
+✅ Complete
 
 * WinUI application
-* Embedded player
-* Provider architecture
+* Core architecture
+* Navigation
+* Player integration
 
-### Phase 2
+## Phase 2 — Metadata Warehouse
 
-Media Library
+✅ Complete
 
-* Local content management
-* Metadata storage
-* Poster support
+* PostgreSQL warehouse
+* TMDB synchronization
+* Genre mapping
+* Historical popularity tracking
+* Detail enrichment
 
-### Phase 3
+## Phase 3 — Streaming Platform UI
 
-AI Metadata
+🚧 In Progress
 
-* Automated metadata generation
-* Thumbnail extraction
+* Movie details pages
+* Streaming workflow
+* Catalog improvements
+* Search
+
+## Phase 4 — Local Media Libraries
+
+⬜ Planned
+
+* Local media support
+* NAS integration
+* Collection management
+
+## Phase 5 — AI Metadata Services
+
+⬜ Planned
+
+* Metadata generation
+* Recommendations
 * Content analysis
 
-### Phase 4
+## Phase 6 — Native Playback Engine
 
-Home Streaming
+⬜ Planned
 
-* NAS support
-* Self-hosted infrastructure
-* Remote access
+* MPV integration
+* Native playback controls
+* Subtitle system
 
-### Phase 5
+## Phase 7 — Home Theater Optimization
 
-Home Theater Optimization
+⬜ Planned
 
-* Advanced audio routing
+* SPDIF passthrough
 * DTS passthrough
 * Dolby passthrough
-* Dedicated surround sound support
+* Surround sound optimization
 
 ---
 
-## Why Aether Exists
+# Why Aether Exists
 
-Aether exists because modern media consumption has become fragmented across multiple platforms, while advanced home theater audio support continues to receive less attention.
+Modern media consumption has become fragmented across multiple platforms while advanced home theater audio support continues to receive less attention.
 
-The project aims to restore user control over media, preserve high-quality surround sound playback, and provide a unified platform for both local and streamed content.
+Aether exists to restore user control over media, preserve high-quality playback, and provide a unified platform for both streamed and locally owned content.
 
-At its core, Aether is a home theater platform built around a simple idea:
+At its core, Aether is built around a simple idea:
 
-**Your content. Your audio. Your system.**
+**Your Content. Your Audio. Your System.**
