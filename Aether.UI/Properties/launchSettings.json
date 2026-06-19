@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Aether.UI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Aether.UI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

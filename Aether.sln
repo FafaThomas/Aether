@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aether.UI", "Aether.UI\Aether.UI.csproj", "{47A81062-A6E4-4BFE-89EF-7959CE281176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aether.Player", "Aether.Player\Aether.Player.csproj", "{29FF5C01-0B98-413D-BAD9-E199CF3F7A72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47A81062-A6E4-4BFE-89EF-7959CE281176}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{47A81062-A6E4-4BFE-89EF-7959CE281176}.Debug|Any CPU.Build.0 = Debug|x86
+		{47A81062-A6E4-4BFE-89EF-7959CE281176}.Release|Any CPU.ActiveCfg = Release|x86
+		{47A81062-A6E4-4BFE-89EF-7959CE281176}.Release|Any CPU.Build.0 = Release|x86
+		{29FF5C01-0B98-413D-BAD9-E199CF3F7A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29FF5C01-0B98-413D-BAD9-E199CF3F7A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29FF5C01-0B98-413D-BAD9-E199CF3F7A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29FF5C01-0B98-413D-BAD9-E199CF3F7A72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
