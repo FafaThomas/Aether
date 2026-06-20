@@ -25,13 +25,21 @@ public class DetailSyncWorker
 
         foreach (var tmdbId in movieIds)
         {
-            var details =
-                await _tmdb.GetMovieDetailsAsync(tmdbId);
+            try
+            {
+                var details =
+                    await _tmdb.GetMovieDetailsAsync(tmdbId);
 
-            await _postgres.UpsertMovieDetailsAsync(details);
+                if (details == null)
+                    continue;
 
-            Console.WriteLine(
-                $"Enriched [{tmdbId}] Runtime={details.Runtime}");
+                await _postgres.UpsertMovieDetailsAsync(details);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(
+                    $"Failed {tmdbId}: {ex.Message}");
+            }
         }
     }
 }

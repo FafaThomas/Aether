@@ -30,7 +30,7 @@ public class CatalogService
             ON fd.tmdb_id = dm.tmdb_id
 
         ORDER BY fd.popularity DESC
-        LIMIT 100;
+        LIMIT 200;
         """;
 
         await using var connection =
